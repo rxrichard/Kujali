@@ -9,6 +9,7 @@ import { formatDistance } from "date-fns";
 import pt from "date-fns/esm/locale/pt/index.js";
 import fonts from "../styles/fonts";
 import { PlantCardSecondary } from "../components/PlantCardSecondary";
+import { Load } from "../components/Load";
 
 export function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantsProps[]>([]);
@@ -34,6 +35,9 @@ export function MyPlants() {
     loadStorageData();
   }, []);
 
+  if(loading)
+    return<Load/>
+    
   return (
     <View style={styles.container}>
       <Header />
